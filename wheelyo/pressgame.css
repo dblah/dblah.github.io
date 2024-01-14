@@ -1,0 +1,120 @@
+#game {
+  border: 1;
+  background-color: rgb(180, 180, 218);
+  width: 600px;
+  height: 240px;
+}
+
+.selAreaPick {
+  background-color: blue;
+  border: 22px
+}
+
+.selAreaPick tr td {
+  padding: 0;
+  text-align: center;
+  display: "inline-block";
+}
+
+.selAreaPickBad {
+  background-color: greenyellow;
+  min-width: 25px;
+  height: 25px;
+  width: 30px;
+}
+
+.selAreaPickBadTh {
+  background-color: rgb(47, 113, 255);
+}
+
+.divider {
+  width: 4px;
+  height: auto;
+  display: inline-block;
+}
+
+#selBadDiv {
+  display: inline-block;
+}
+
+#msgPanelButtonOptsDiv {
+  position: absolute;
+  bottom: 3;
+  right: 0;
+}
+
+#msgPanel {
+  position: relative;
+  left: 3;
+}
+
+#gameStateDiv {
+  vertical-align: top;
+  display: inline-block;
+  height: 100%;
+  position: relative;
+}
+
+#quitButton {
+  min-width: 140px;
+}
+
+#gameStatePanel {
+  width: 320px;
+}
+
+.highscoretable {
+  border: 1;
+  margin: 0 auto;
+}
+
+.gameStateArea {
+  border-color: black;
+  border: 3;
+  min-width: 55px;
+  vertical-align: top;
+}
+
+.gameStateAreaR {
+  border-color: black;
+  border: 3;
+  min-width: 55px;
+  text-align: right;
+}
+
+
+/* Popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  /*visibility: hidden;*/
+  min-width: 280px;
+  min-height: 280px;
+  background-color: #888;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: 25px;
+}
+
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
