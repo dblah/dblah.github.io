@@ -4,9 +4,10 @@
 	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
 	<meta http-equiv="Pragma" content="no-cache" />
 	<meta http-equiv="Expires" content="0" />
-    <title>WheelYo! Game</title>
+	<title>WheelYo! Game</title>
 
 	<link rel="stylesheet" href="pressgame.css">
+	<link rel="stylesheet" href="instructions.css">
 	<script src="./pressgameengine.js"></script>
 	<script src="./pressgamerunner.js"></script>
 	<script src="./pressgameui.js"></script>
@@ -16,17 +17,98 @@
 </head>
 
 <body>
-	<canvas id="canvas1" width="600" height="600"
-	style="border:1px solid #c3c3c3;">
-	Your browser does not support the canvas element.
+	<canvas id="canvas1" width="600" height="600" style="border:1px solid #c3c3c3;">
+		Your browser does not support the canvas element.
 	</canvas>
-<div id="game"></div>
+	<div id="game"></div>
 
-<script>
-var pressGameEngine = new PressGameEngine();
-var pressGameUI = new PressGameUI("game", pressGameEngine, "canvas1");
-var pressGameRunner = new PressGameRunner(pressGameEngine,pressGameUI);
-pressGameRunner.run();
-</script>
+	<script>
+		var pressGameEngine = new PressGameEngine();
+		var pressGameUI = new PressGameUI("game", pressGameEngine, "canvas1");
+		var pressGameRunner = new PressGameRunner(pressGameEngine, pressGameUI);
+		pressGameRunner.run();
+	</script>
+	<br/>
+	<article id="instructions">
+		<h1>WheelYo! Game Instructions</h1>
+		<h2>How to Play</h2>
+		<p dir="auto">This is a press your luck style game where the goal is to see how high of a score you can get. You
+			gain points by spinning the wheel and landing on wedges with a positive outcome. Initially the entire wheel
+			is filled with positive outcomes. However, everytime you land on a wedge with a positive outcome you must
+			replace that wedge with a new wedge which will have a negative outcome. The wheel becomes unfriendlier as
+			the game goes on! You continue playing until you have a negative 'At Risk' balance, hit a 'GAME OVER', or
+			decide to quit with your current total.</p>
+		<h2>Wheel Wedges</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Wedges</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>+X</td>
+					<td>Adds X points to 'At Risk' score.</td>
+				</tr>
+				<tr>
+					<td>×X</td>
+					<td>Multiplies your 'At Risk' amount by X.</td>
+				</tr>
+				<tr>
+					<td>BANK</td>
+					<td>Moves your 'At Risk' amount to the 'Bank'.</td>
+				</tr>
+				<tr>
+					<td>-X</td>
+					<td>Removes X points from your 'At Risk' score.</td>
+				</tr>
+				<tr>
+					<td>LOSE X%</td>
+					<td>Multiplies your 'At Risk' points by X.</td>
+				</tr>
+				<tr>
+					<td>GAME OVER</td>
+					<td>The game is over and you no longer have the option of spinning the wheel. You keep your points,
+						unless otherwise specified in the wedge.</td>
+				</tr>
+			</tbody>
+		</table>
+		<h2>Point Score Categories</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Category</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>At Risk</td>
+					<td>This amount is 'At Risk'</td>
+				</tr>
+				<tr>
+					<td>Bank</td>
+					<td>Points here are absolutely safe. The only wedge that impacts this amount is the 'BANK' wedge
+						which moves your 'At Risk' amount to the 'Bank', other positive and negative wedges do not
+						impact this amount.</td>
+				</tr>
+				<tr>
+					<td>Total</td>
+					<td>Your current score, which is the summation of the 'At Risk' and 'Bank' amounts.</td>
+				</tr>
+			</tbody>
+		</table>
+		<h2>Control Instructions</h2>
+		<p dir="auto">
+			<ul>
+			<li>To spin the wheel, click the wheel.</li>
+			<li>To choose a 'bad' replacement wedge, select one of the randomized 64 'Bad' Replacement Wedge boxes.</li>
+			<li>To quit with your current total, click the Quit button.</li>
+		</ul></p>
+	</article>
+
+
 </body>
+
 </html>
