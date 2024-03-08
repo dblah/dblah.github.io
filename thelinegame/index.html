@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>The Line Game</title>
+<link rel="stylesheet" href="css/linegame.css" />
+<script src="js/linegame.js"></script>
+<script>
+window.addEventListener('load', function() {
+	new TheLineGame("TheLineGame").run();
+}, false);
+</script>
+</head>
+<body>
+
+	<div id='TheLineGame' class='linegamediv'>
+		<table class='linegametable'>
+			<thead>
+				<tr>
+					<th colspan="2">
+						<h1>The Line Game</h1>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Difficulty&nbsp;Level</td>
+					<td><select id='TheLineGame.players'>
+							<!-- <option value='CvC'>Computer Expert vs Computer Expert</option> -->
+							<option value='HvC1'>Human vs Computer - Newcomer</option>
+							<option value='HvC2'>Human vs Computer - Intermediate</option>
+							<option value='HvC3'>Human vs Computer - Advanced</option>
+							<option value='HvC4'>Human vs Computer - Expert</option>
+							<option value='HvH'>Human vs Human</option>
+					</select></td>
+				</tr>
+
+				<tr>
+					<td>Who&nbsp;Moves&nbsp;First</td>
+					<td><select id='TheLineGame.whoGoesFirst'>
+							<option value='1'>Player 1</option>
+							<option value='2'>Player 2</option>
+					</select></td>
+				</tr>
+
+				<tr>
+					<td>Game&nbsp;Layout&nbsp;</td>
+					<td><select id='TheLineGame.gameLayout'>
+							<option value='Classic'>Classic</option>
+							<option value='Expanded'>Expanded</option>
+							<option value='Sevens'>Sevens</option>
+							<option value='Random'>Random Layout</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td colspan="2" class='linegametd center'>
+						<button id='TheLineGame.NewGameButton'>New Game</button>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" class='linegametd center'>
+						<button id='TheLineGame.Instructions' onClick="window.open('instructions.html');">Instructions</button>
+					</td>
+				</tr>
+
+				<tr>
+					<td colspan="2">
+						<table class='linegameplaysubtable linegametable'>
+							<tr>
+								<td><textarea id="TheLineGame.MessageConsole" rows='4'
+										cols=80
+										style="display: block; margin-left: auto; margin-right: auto;"></textarea>
+
+								</td>
+								<td><p style="text-align: center;">&nbsp;&nbsp;Whose&nbsp;Turn&nbsp;&nbsp;</p>
+									<p id="TheLineGame.whoseTurn"
+										style="text-align: center; font-style: italic">N/A</p></td>
+							</tr>
+						</table>
+
+					</td>
+
+				</tr>
+				<tr>
+					<td colspan="2" class='linegameplaytd'><canvas
+							id="TheLineGame.Canvas" width="800" height="600" 
+							style="border: 1px solid black;"></canvas></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

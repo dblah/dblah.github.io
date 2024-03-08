@@ -1,0 +1,65 @@
+#run {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3 ease-in-out;
+}
+
+#run.fade {
+  opacity: 0;
+}
+
+#run.fadeIn {
+  opacity: 100;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td,
+th {
+  border: 1px solid black;
+}
+
+.progresstable td, .progresstable th {
+  border: 1px solid black;
+  min-width: 200px;
+  padding: 2px;
+}
+
+.zenotable td, .zenotable th {
+  border: 1px solid black;
+  min-width: 500px;
+  max-width: 500px;
+  padding: 2px;
+}
+
+.zenotable2 td {
+  border: 1px solid black;
+  width: 500px;
+  height: 180px;
+  vertical-align: top;
+  padding: 5px;
+  
+}
+
+.zenotable2 th {
+  border: 1px solid black;
+  width: 100px;
+  height: 160px;
+  padding: 2px;
+}
+
+.runbutton {
+  font-size: 20px;
+  width: 180px;
+  height: 80px;
+}
+.newGameButton {
+  font-size: 20px;
+  width: 180px;
+  height: 80px;
+}
