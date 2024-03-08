@@ -1,0 +1,121 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="zeno.css">
+
+
+    <title>Zeno's Great Race</title>
+    <script type="module">
+        import { move, getStatus, startGame } from './zeno.js';
+
+        function updateStatus() {
+            let obj = getStatus();
+            document.getElementById("rDistanceFromLeader").innerHTML = obj.rDistanceFromLeader;
+            document.getElementById("aDistanceFromLeader").innerHTML = obj.aDistanceFromLeader;
+            document.getElementById("aPoint").innerHTML = obj.aPoint;
+            document.getElementById("rPoint").innerHTML = obj.rPoint;
+            document.getElementById("aSpeed").innerHTML = obj.aSpeed;
+            document.getElementById("rSpeed").innerHTML = obj.rSpeed;
+            document.getElementById("aPlace").innerHTML = obj.aPlace;
+            document.getElementById("rPlace").innerHTML = obj.rPlace;
+            document.getElementById("zenoChatPane").innerHTML = obj.currMsg;
+            document.getElementById("zenoChatPane2").innerHTML = obj.supplementalInstructions;
+        }
+
+
+        function doRunning() {
+            move();
+            updateStatus();
+        }
+
+        function doNewGame() {
+            document.getElementById("Run").focus();
+            startGame();
+            updateStatus();
+        }
+
+
+        window.onload = (event) => {
+            doNewGame();
+            
+            document.getElementById("Run").addEventListener('click', doRunning);
+            document.getElementById("newGame").addEventListener('click', doNewGame);
+            //Listen For Enter
+            document.onkeydown = function (e) {
+                const theKey = e.key;
+                if (theKey.length === 1) {
+                    return theKey.codePointAt(0);
+                }
+                switch (theKey) {
+                    /**
+                     * To make it easier to hit enter, unless focus is on new game button
+                     * we'll treat it as Run Button.
+                     * 
+                     * */
+                    case "Enter":
+                        let nGButton =document.getElementById("newGame");
+                        if (document.activeElement === nGButton) {
+                            doNewGame();
+                        } else {
+                            doRunning();
+                        }
+                    
+                        break;
+                }
+            }
+        };
+    </script>
+
+
+</head>
+
+<body>
+
+    <h1>Zeno's Great Race</h1>
+    <div id="game">
+        <div id="status">
+            <table class="progresstable">
+                <thead><tr><th></th><th>Speed</th><th>Distance From Start</th><th>Current Place</th><th>Distance From Leader</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td>Achilles (You)</td>
+                        <td id="aSpeed">
+                            ?
+                        </td>
+                        <td id="aPoint">
+                            ?
+                        </td>
+                        <td id="aPlace">
+                            ?
+                        </td>
+                        <td id="aDistanceFromLeader">
+                            ?
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Turtle (Competitor)</td>
+                        <td id="rSpeed">
+                            ?
+                        </td>
+                        <td id="rPoint">
+                            ?
+                        </td>
+                        <td id="rPlace">
+                            ?
+                        </td>
+                        <td id="rDistanceFromLeader">
+                            ?
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br/>
+        <table class="zenotable2"><tr><th>Zeno&nbsp;Says:</th><td class="zenotable2"><p id="zenoChatPane"></p><i><p id="zenoChatPane2"></p></i></td></tr></table>
+        <br/>
+        <input type="button" value="Run" id="Run" class="runbutton"/>
+        <input type="button" value="New Race" id="newGame" class="newGameButton"/>
+    </div>
+</body>
+
+</html>
