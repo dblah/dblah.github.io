@@ -60,13 +60,32 @@ class PressGameUI {
 
 
     handleRequestNewGame() {
+        if (this.gameEngine.gameState.isActionAllowed()) {
+            this.triggerNewGame();
+        } else {
+            console.log("New Game Not Allowed");
+        }
+       
+    }
+
+    triggerNewGame() {
         this.init();
     }
 
     handleRequestGameOver() {
+        if (this.gameEngine.gameState.isActionAllowed()) {
+            this.triggerGameOver();
+        } else {
+            console.log("Game Over Not Allowed");
+        }
+    }
+
+
+    triggerGameOver() {
         this.gameEngine.setGameAsOver();
         this.displayForGameOver();
     }
+
 
     displayForGameOver() {
         this.updateVisuals(this.gameEngine.gameState, null, null);
@@ -171,6 +190,16 @@ class PressGameUI {
         return ret;
     }
 
+    determineGameRoundControls(gameState) {
+        if (gameState.isActionAllowed()) {
+            this.toggleQuitButton(true);
+            this.toggleNewGameButton(true);
+        } else {
+            this.toggleQuitButton(false);
+            this.toggleNewGameButton(false);
+        }
+    }
+
     determineCursorForBadChoiceOptions(gameState) {
         let ret = "not-allowed";
         if (gameState.gamePoint == GamePoint.DO_BAD) {
@@ -181,6 +210,7 @@ class PressGameUI {
 
 
     updateVisuals(gameState, spinResult, badActionPickResult) {
+        this.determineGameRoundControls(gameState);
         this.updateCursors(gameState);
         this.displayStateArea(gameState, spinResult, badActionPickResult);
     }
@@ -329,8 +359,7 @@ class PressGameUI {
 
     displayButtonOptions(divId, gameState) {
         if (this.doButtonOptionsExistAlready()) {
-            this.toggleQuitButton(true);
-            this.toggleNewGameButton(true);
+            this.determineGameRoundControls(gameState);
             return;
         }
 
