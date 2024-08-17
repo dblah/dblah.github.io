@@ -26,6 +26,19 @@ class PressGameEngine {
     return true;
   }
 
+  isNewGameAllowed() {
+    if (this.gameState.gamePoint== GamePoint.DO_SPIN) {
+      return false;
+    }
+    return true;
+  }
+
+  isGameOverAllowed() {
+    if (this.gameState.gamePoint== GamePoint.DO_SPIN) {
+      return false;
+    }
+    return true;
+  }
 
 
   detectIfGameIsOver() {
