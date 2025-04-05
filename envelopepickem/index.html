@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envelope Pick'em Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Envelope Pick'em Game</h1>
+        <div class="game-controls">
+            <div class="controls-row">
+                <button id="startGameBtn">Start Game</button>
+                <button id="quitBtn" style="display: none;">Quit</button>
+                <button id="highScoresBtn">High Scores</button>
+                <div class="score-display">
+                    Current Score: <span id="currentScore">0</span>
+                </div>
+                <div id="messageBox" class="message-box"></div>
+            </div>
+        </div>
+        <div class="game-area">
+            <div class="grid-container" id="boxGrid"></div>
+            <div class="value-list" id="valueList"></div>
+            <div id="paperContainer" class="paper-container"></div>
+        </div>
+        <div id="overlay" class="overlay"></div>
+
+        <div id="highScoresModal" class="modal">
+            <div class="modal-content">
+                <h2>High Scores</h2>
+                <div id="highScoresList" class="highScoresList"></div>
+                <button id="closeHighScores">Close</button>
+            </div>
+        </div>
+        <div class="instructions">
+            <h2>Instructions</h2>
+            <p>Click on an envelope to reveal what color of card it contains, 
+                you may then quit with your current score or can click on the envelope again to reveal 
+                the value.  If you choose to continue on you can keep opening up more envelopes until you choose to quit or you reveal a "Game Over" message.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
